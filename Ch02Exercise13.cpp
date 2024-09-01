@@ -2,7 +2,7 @@
 This program reads the original price, the mark up percentage, and the sales tax rate of an item
 then outputs the original price, the percentage of mark up, the selling price, the sales tax rate,
 and the final price of the item.
-/*
+*/
 
 #include <iostream>
 
