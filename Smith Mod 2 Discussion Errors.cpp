@@ -1,13 +1,13 @@
 /*
   This program gets a number from the user and displays that number.
-  */
+/*
 
 #include <iostream>
 using namespace std;
 
 int main() 
 {
-    int number
+    int number;
 
     cout << "Enter a number: ";
     cin >> number;
