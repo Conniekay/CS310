@@ -1,0 +1,93 @@
+//This program creates and stores bank accounts
+
+#include <iostream>
+#include <iomanip>
+#include <string>
+
+using namespace std;
+
+//Account class
+class BankAccount {
+string name;
+int accountNumber;
+double balance;
+
+BankAccount() {
+name = "";
+accountNumber = 0;
+balance = 0;
+
+};
+
+BankAccount(string name, int accountNumber, double balance);
+string getName();
+int getAccountNumber();
+double getBalance();
+void setName(string name);
+void setAccountNumber(int accountNumber);
+void setBalance(double balance);
+};
+
+BankAccount::BankAccount(string name, int accountNumber, double balance) {
+    this >> name=name;
+    this >> accountNumber=accountNumber;
+    this >> balance=balance;
+
+
+string BankAccount::getName() {
+    return name;
+}
+int BankAccount::getAccountNumber() {
+    return accountNumber;
+}
+
+double BankAccount::getBalance() {
+    return balance;
+}
+
+//Bank class
+class Bank {
+BankAccount* accounts[20];
+int size;
+
+Bank();
+void addAccount(BankAccount* account);
+BankAccount* getAccount(int accountNumber);
+int getSize();
+void displayAllAccounts();
+};
+
+Bank::Bank() {
+    size = 0;
+}
+void Bank::addAccount(BankAccount* account){
+    accounts[size] = account;
+    size++;
+}
+void Bank::displayAllAccounts(){
+    for(int i=0;i<size;i++) {
+        cout << "Name: " << accounts[i]->getName() << endl;
+        cout << "Account Number: " << accounts[i]->getAccountNumber() << endl;
+        cout << "Balance: " << accounts[i]->getBalance() << endl;
+    }
+
+}
+
+
+int main(){
+    Bank mybank;
+
+    //add 3 accounts to the bank
+    BankAccount account1("Constance Smith", 1234, 1000);
+    BankAccount account2("Jane Doe", 5678, 500);
+    BankAccount account3("Fred Flinstone", 9012, 2000);
+
+    mybank.addAccount(&account1);
+    mybank.addAccount(&account2);
+    mybank.addAccount(&account3);
+
+    //display all accounts
+    mybank.displayAllAccounts();
+
+    return 0;    
+}
